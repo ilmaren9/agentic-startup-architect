@@ -1,3 +1,5 @@
+🏆 Built for Google Agentic Architect Sprint 2026
+
 # Agentic Startup Architect
 
 A multi-agent startup validation system built with Google Antigravity and Gemini.
@@ -79,7 +81,36 @@ Key Risks:
 - Seasonality
 - Customer acquisition cost
 ```
-``
+
+
+## Screenshots
+
+### Antigravity IDE
+
+images/ide.png
+
+The project was developed using Google Antigravity IDE and Gemini-powered agent workflows. Antigravity was used to assist with architecture design, implementation planning, technical analysis, and documentation.
+
+### Parallel Agent Execution
+
+images/parallel-execution.png
+
+### Startup Validation Report
+
+images/report.png
+
+## How Google Antigravity Was Used
+
+Google Antigravity was used throughout the project lifecycle:
+
+- Architecture design
+- Multi-agent workflow planning
+- Agent orchestration design
+- Technical analysis
+- Code generation assistance
+- Documentation creation
+
+The project specifically explores Dynamic Subagents & Shared Agent Harness patterns using Antigravity-assisted development.
 
 ## Agent Responsibilities
 
@@ -286,6 +317,35 @@ This project demonstrates how specialized AI agents can collaborate to perform s
 
 ---
 
+## Getting Started
+
+### Clone Repository
+
+```bash
+git clone https://github.com/BilguunGDE/agentic-startup-architect.git
+cd agentic-startup-architect
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configure Environment
+
+Create a `.env` file:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+### Run
+
+```bash
+python main.py
+```
+
 ## Technologies
 
 - Google Antigravity
@@ -294,8 +354,9 @@ This project demonstrates how specialized AI agents can collaborate to perform s
 - AsyncIO
 - GitHub
 
-#GoogleAntigravity #AgenticArchitect
+## Related Links
 
+- Blog Post: https://medium.com/@bilguun.js/building-a-multi-agent-startup-validation-system-with-google-antigravity-314aa60a2f02?sharedUserId=bilguun.js
 ---
 
 ## License
