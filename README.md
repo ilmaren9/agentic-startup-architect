@@ -93,11 +93,11 @@ The project was developed using Google Antigravity IDE and Gemini-powered agent 
 
 ### Parallel Agent Execution
 
-images/parallel-execution.png
+![Parallel Agent Execution](images/parallel-execution.png)
 
 ### Startup Validation Report
 
-images/report.png
+![Startup Validation Report](images/report.png)
 
 ## How Google Antigravity Was Used
 
