@@ -1,62 +1,267 @@
 # Agentic Startup Architect
 
-A multi-agent startup validation system built for the Agentic Architect Sprint.
+A multi-agent startup validation system built with Google Antigravity and Gemini.
 
-This project demonstrates a hub-and-spoke multi-agent architecture using the Gemini API. An **Orchestrator Agent** takes a startup idea and runs several specialist agents in parallel to analyze it. Their isolated findings are then passed to a **Synthesis Agent** that generates a comprehensive, final Markdown report.
+This project was created for the **Agentic Architect Sprint 2026** and demonstrates **Dynamic Subagents & Shared Agent Harness** for startup evaluation and business validation workflows.
+
+---
+
+## Overview
+
+Startup validation often requires multiple types of analysis, including market research, competitor analysis, customer discovery, and business model evaluation.
+
+Instead of relying on a single AI agent, Agentic Startup Architect decomposes the problem into specialized agents that operate independently and contribute their findings to a final recommendation report.
+
+The system showcases:
+
+- Dynamic Subagents
+- Shared Agent Harness
+- Context Isolation
+- Parallel Execution
+- Multi-Agent Orchestration
+- Reasoning-Driven Decision Making
+
+---
 
 ## Architecture
 
-1. **Orchestrator Agent (The Hub):** Manages the workflow and parallel execution.
-2. **Specialized Subagents (The Spokes):** Each runs independently with strict context isolation.
-   - **Market Research Agent:** Evaluates market size and trends.
-   - **Competitor Analysis Agent:** Identifies competitors and UVP.
-   - **Customer Persona Agent:** Details the target audience and pain points.
-   - **Business Model Agent:** Proposes revenue streams and cost structures.
-3. **Synthesis Agent:** Combines all findings into a final Startup Validation Report.
+```mermaid
+flowchart TD
 
-## Folder Structure
+A[Startup Idea] --> B[Orchestrator Agent]
+
+B --> C[Market Research Agent]
+B --> D[Competitor Analysis Agent]
+B --> E[Customer Persona Agent]
+B --> F[Business Model Agent]
+
+C --> G[Synthesis Agent]
+D --> G
+E --> G
+F --> G
+
+G --> H[Startup Validation Report]
+```
+
+---
+
+## Agent Responsibilities
+
+### Market Research Agent
+
+Responsible for:
+
+- TAM / SAM / SOM estimation
+- Market trends
+- Growth opportunities
+- Market risks
+
+### Competitor Analysis Agent
+
+Responsible for:
+
+- Competitor discovery
+- Competitive positioning
+- SWOT analysis
+- Unique Value Proposition identification
+
+### Customer Persona Agent
+
+Responsible for:
+
+- Target audience definition
+- Pain point analysis
+- Customer goals
+- Acquisition opportunities
+
+### Business Model Agent
+
+Responsible for:
+
+- Revenue streams
+- Cost structure
+- Unit economics
+- Financial viability
+
+### Synthesis Agent
+
+Responsible for:
+
+- Aggregating outputs from all specialist agents
+- Producing a final startup validation report
+- Generating strategic recommendations
+- Providing a Go / No-Go decision
+
+---
+
+## Shared Agent Harness
+
+The project follows a Hub-and-Spoke architecture.
+
+The Shared Agent Harness is provided by:
+
+### BaseAgent
+
+A shared agent framework that handles:
+
+- Gemini API communication
+- Model configuration
+- Error handling
+- Prompt execution
+
+### Orchestrator Agent
+
+The orchestrator:
+
+- Creates and manages specialist agents
+- Coordinates execution
+- Collects outputs
+- Routes findings to the Synthesis Agent
+
+This architecture minimizes duplicated logic and makes it easy to add new specialist agents.
+
+---
+
+## Context Isolation
+
+Each specialized agent receives only the original startup idea.
+
+For example:
+
+- Market Research Agent does not see Competitor Analysis results.
+- Competitor Analysis Agent does not see Customer Persona outputs.
+- Business Model Agent does not see Market Research assumptions.
+
+This isolation prevents cascading biases and allows every agent to independently reason about its assigned domain.
+
+Only the Synthesis Agent receives full visibility into all outputs.
+
+---
+
+## Parallel Execution
+
+The system executes specialist agents concurrently using asynchronous execution.
+
+Instead of running sequentially:
 
 ```text
-agentic-startup-architect/
-├── agents/
-│   ├── __init__.py
-│   ├── base_agent.py          # Abstract base class with Gemini integration
-│   ├── orchestrator.py        # Manages parallel execution
-│   ├── market_research.py     # Specialist Agent
-│   ├── competitor_analysis.py # Specialist Agent
-│   ├── customer_persona.py    # Specialist Agent
-│   ├── business_model.py      # Specialist Agent
-│   └── synthesis.py           # Synthesizes the final report
-├── utils/
-│   ├── __init__.py
-│   └── report_writer.py       # Saves output to a markdown file
-├── main.py                    # Application entry point
-├── requirements.txt           # Dependencies
-└── .env.example               # Example environment variables
+Market Research
+→ Competitor Analysis
+→ Customer Persona
+→ Business Model
 ```
 
-## Setup Instructions
+all agents execute at the same time:
 
-1. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Configure API Key:**
-   Copy the example environment file and add your Google Gemini API key.
-   ```bash
-   cp .env.example .env
-   ```
-   Open `.env` and set `GEMINI_API_KEY=your_actual_api_key`.
-
-## Running the Example Workflow
-
-Run the main application script:
-
-```bash
-python main.py
+```text
+Market Research Agent
+Competitor Analysis Agent
+Customer Persona Agent
+Business Model Agent
 ```
 
-You will be prompted to enter a startup idea (or press Enter to use the default).
-The orchestrator will spin up the specialized agents in parallel.
-Once all data is collected, the Synthesis Agent will generate a comprehensive report saved in the `output/` directory.
+The Orchestrator waits for all results and then forwards them to the Synthesis Agent.
+
+Benefits include:
+
+- Reduced latency
+- Better resource utilization
+- Improved scalability
+- Faster startup validation
+
+---
+
+## Example Startup
+
+```text
+AI-powered platform helping tourists discover Mongolia
+```
+
+---
+
+## Example Output
+
+### Market Opportunity
+
+Growing tourism demand and increasing interest in personalized travel planning experiences.
+
+### Competitors
+
+- Tripadvisor
+- Google Travel
+- GetYourGuide
+
+### Customer Personas
+
+- Adventure Travelers
+- Digital Nomads
+- Family Tourists
+
+### Business Model
+
+- Booking commissions
+- Premium subscriptions
+- Partner marketplace fees
+
+### Final Recommendation
+
+```text
+GO
+
+Confidence Score: 82%
+```
+
+---
+
+## Technical Highlights
+
+- Multi-Agent Architecture
+- Dynamic Subagents
+- Shared Agent Harness
+- Context Isolation
+- Parallel Execution
+- Gemini-Powered Analysis
+- Structured Startup Evaluation
+
+---
+
+## Agentic Architect Sprint 2026
+
+### Project Topic
+
+**Dynamic Subagents & Shared Agent Harness**
+
+### Project Title
+
+**Agentic Startup Architect: Multi-Agent Business Validation using Google Antigravity**
+
+This project demonstrates how specialized AI agents can collaborate to perform startup validation through parallel execution and structured reasoning.
+
+---
+
+## Future Work
+
+- Fully Autonomous Goal Execution
+- Human-in-the-Loop Approval Gates
+- Continuous Market Monitoring
+- Persistent Memory Between Agents
+- Agent Performance Evaluation Framework
+- Web Interface and Visualization Dashboard
+
+---
+
+## Technologies
+
+- Google Antigravity
+- Gemini
+- Python
+- AsyncIO
+- GitHub
+
+#GoogleAntigravity #AgenticArchitect
+
+---
+
+## License
+
+MIT License
