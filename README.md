@@ -87,7 +87,7 @@ Key Risks:
 
 ### Antigravity IDE
 
-images/ide.png
+![Antigravity IDE](images/ide.png)
 
 The project was developed using Google Antigravity IDE and Gemini-powered agent workflows. Antigravity was used to assist with architecture design, implementation planning, technical analysis, and documentation.
 
@@ -362,3 +362,5 @@ python main.py
 ## License
 
 MIT License
+
+[images]: images/ide.png
