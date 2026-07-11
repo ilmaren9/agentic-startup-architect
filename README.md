@@ -45,6 +45,42 @@ G --> H[Startup Validation Report]
 
 ---
 
+## Demo
+
+### Input
+
+```text
+AI-powered platform helping tourists discover Mongolia
+```
+
+### Workflow
+
+```text
+1. Orchestrator Agent receives startup idea
+2. Market Research Agent analyzes market opportunity
+3. Competitor Analysis Agent evaluates competitors
+4. Customer Persona Agent identifies target users
+5. Business Model Agent assesses viability
+6. Synthesis Agent generates final recommendation
+```
+
+### Output
+
+```text
+Verdict: GO
+
+Confidence Score: 82%
+
+Key Opportunities:
+- Offline-first travel assistant
+- Localized tourism intelligence
+
+Key Risks:
+- Seasonality
+- Customer acquisition cost
+```
+``
+
 ## Agent Responsibilities
 
 ### Market Research Agent
